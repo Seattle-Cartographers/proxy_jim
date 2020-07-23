@@ -16,6 +16,12 @@ app.use(cors());
 app.use('/:id', express.static('./public'));
 
 
+// loader.io verification route
+app.get('/' + process.env.token, (req, res) => {
+  res.send(process.env.token)
+});
+
+
 app.get('/favicon.ico/', (req, res) => {
   res.sendStatus(200);
 });
