@@ -9,7 +9,7 @@ const experienceHost = 'http://ec2-54-202-205-221.us-west-2.compute.amazonaws.co
 
 const app = express();
 const proxy = httpProxy.createProxyServer({});
-const port = 4000;
+const port = 80;
 
 app.use(morgan('dev'));
 app.use(cors());
