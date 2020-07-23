@@ -5,7 +5,7 @@ const cors = require('cors');
 const mainHost = 'http://localhost:3000';
 const reviewHost = 'http://localhost:3004';
 const attractionHost = 'http://localhost:3003';
-const experienceHost = 'http://ec2-54-202-205-221.us-west-2.compute.amazonaws.com/';
+const experienceHost = process.env.expURL;
 
 const app = express();
 const proxy = httpProxy.createProxyServer({});
@@ -65,5 +65,5 @@ proxy.on('error', function (err, req, res) {
   res.status(500).send(err);
 });
 
-app.listen('now listening on: ', port);
+app.listen(port);
 
