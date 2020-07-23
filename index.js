@@ -15,13 +15,6 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use('/:id', express.static('./public'));
 
-
-// loader.io verification route
-app.get('/' + process.env.token, (req, res) => {
-  res.send(process.env.token)
-});
-
-
 app.get('/favicon.ico/', (req, res) => {
   res.sendStatus(200);
 });
@@ -65,6 +58,11 @@ app.get('/:id/fonts/*', (req, res) => {
 // app.patch('/:id/api/reviews/:reviewId/:imageId', (req, res) => {
 //   proxy.web(req, res, {target: reviewHost});
 // });
+
+// loader.io verification route
+app.get('/' + process.env.token, (req, res) => {
+  res.send(process.env.token)
+});
 
 proxy.on('error', function (err, req, res) {
   console.log(res);
