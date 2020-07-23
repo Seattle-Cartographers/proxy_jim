@@ -5,7 +5,7 @@ const cors = require('cors');
 const mainHost = 'http://localhost:3000';
 const reviewHost = 'http://localhost:3004';
 const attractionHost = 'http://localhost:3003';
-const experienceHost = process.env.expURL;
+const experienceHost = `http://${process.env.expURL}`;
 
 const app = express();
 const proxy = httpProxy.createProxyServer({});
