@@ -29,7 +29,7 @@ app.get('/:id/imageMain/bundle.js', (req, res) => {
   proxy.web(req, res, {target: mainHost});
 });
 
-app.get('/api/carousels/:id', (req, res) => {
+app.get('/:id/api/carousels', (req, res) => {
   proxy.web(req, res, {target: mainHost});
 });
 
