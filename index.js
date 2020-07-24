@@ -13,6 +13,12 @@ const port = 80;
 
 app.use(morgan('dev'));
 app.use(cors());
+
+// loader.io verification route
+app.get('/' + process.env.token, (req, res) => {
+  res.send(process.env.token)
+});
+
 app.use('/:id', express.static('./public'));
 
 app.get('/favicon.ico/', (req, res) => {
@@ -58,11 +64,6 @@ app.get('/:id/fonts/*', (req, res) => {
 // app.patch('/:id/api/reviews/:reviewId/:imageId', (req, res) => {
 //   proxy.web(req, res, {target: reviewHost});
 // });
-
-// loader.io verification route
-app.get('/' + process.env.token, (req, res) => {
-  res.send(process.env.token)
-});
 
 proxy.on('error', function (err, req, res) {
   console.log(res);
